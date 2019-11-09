@@ -33,19 +33,6 @@ class CesiRoute {
         this.m_Router = router;
     }
 
-    /*private add(method: any, fnc: any) : CesiRoute {
-        //console.log("Setting get for route "+this.m_Root);
-        for(var i=0; i<this.m_MaxLength; i++) {
-            var paramsPath='';
-            for(var n=0; n<i; ++n) {
-                paramsPath+=('/:p'+n);
-            }
-            //console.log("Adding route: "+this.m_Root+paramsPath);
-            method(this.m_Root+paramsPath, fnc)
-        }
-        return this;
-    }*/
-
     /**
      * @brief Add route for all HTTP methods
      * @param fnc Handler with form: function(request, response) like express
@@ -62,22 +49,6 @@ class CesiRoute {
         }
         return this;
     }
-
-    /*public get(fnc: any) : CesiRoute {
-        
-        //console.log("Setting get for route "+this.m_Root);
-        for(var i=0; i<this.m_MaxLength; i++) {
-            var paramsPath='';
-            for(var n=0; n<i; ++n) {
-                paramsPath+=('/:p'+n);
-            }
-            //console.log("Adding route: "+this.m_Root+paramsPath);
-            this.m_Router.get(this.m_Root+paramsPath, fnc)
-        }
-        return this;
-        return this.add(this.m_Router.get, fnc);
-    }*/
-
     
 }
 
