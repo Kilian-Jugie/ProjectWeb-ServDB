@@ -57,6 +57,11 @@ class API
 new API();
 
 function api_main($method, $params, $body) {
+	if(count($params)<2) {
+		echo "ERROR: at least 2 parameters are needed";
+		return;
+	}
+
 	if($body&&$body["test"]===true) {
 		echo "Method:\n";
 		var_dump($method);
@@ -69,7 +74,7 @@ function api_main($method, $params, $body) {
 	//phpinfo();
 	//echo $method." localhost/api/".$params["table"]."/".$params["key"];
 	//var_dump($body);
-	API::reqArgs($method, $params["table"], $params["key"], $body);
+	API::reqArgs($method, $params["p0"], $params["p1"], $body);
 	//echo "Test:";
 	//echo "YESSSSSS:".$params["table"]."+".$params["key"]."+";
 	//var_dump($body);
