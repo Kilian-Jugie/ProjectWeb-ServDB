@@ -33,6 +33,8 @@ router.all('/api/:table/:key', function(req, res) {
   
 });*/
 
+router.use(bodyParser.json());
+
 crouter = cesiRouter.CesiRouter.Instance();
 
 crouter.addRoute("/api", 3).all(function(req, res) {
