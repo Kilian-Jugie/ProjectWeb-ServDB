@@ -1,64 +1,43 @@
 <?php 
 include "BDD.php";
 
+
 class API
 {
-	/*function __construct()
-	{
-		$this->reqArgs();
-
-	}*/
-
-	function getTableName($request) {
-		$slashPos = strpos($request, "/", 1);
-		if($slashPos === false) {
-			return substr($request, 1);
-		}
-		else {
-			return substr($request, 1, $slashPos-1);
-		}
+	private static $actions = array();
+	
+	static function registerActionForMethod($method, $action) {
+		self::$actions[$method] = $action;
 	}
 
-	function getKey($request) {
-		return substr($request, strpos($request, "/", 1)+1);
-	}
-	
-	static function reqArgs($method, $table, $key, $input)
-	{
-		
-		//$method = $_SERVER['REQUEST_METHOD'];
-		//$request = $_SERVER['PATH_INFO'];
-		//$input = file_get_contents("php://input");
-	
-		//$table = $this->getTableName($request);
-		//$key = $this->getKey($request);
-			
-	
-		if($method){
-			$bdd = new BDD();
-			switch($method) {
-				case "GET": {
-					$bdd->getAction($table, $key);
-				}break;
-				case "POST": {
-					$bdd->postAction($table, $input);
-				}break;
-				case "PUT": {
-					$bdd->putAction($table, $key, $input);
-				}break;
-				case "DELETE": {
-					$bdd->deleteAction($table, $key);
-				}break;
+	static function callActionForMethod($method, $db, $dbTable, $dbKey, $dbInput) {
+		foreach(self::$actions as $key => $iterator) {
+			if($key === $method) {
+				$db->$iterator($dbTable, $dbKey, $dbInput);
 			}
 		}
+	}
+
+	static function reqArgs($method, $table, $key, $input) {		
+		$bdd = new BDD();
+		self::registerActionForMethod("GET", "getAction");
+		self::registerActionForMethod("POST", "postAction");
+		self::registerActionForMethod("PUT", "putAction");
+		self::registerActionForMethod("DELETE", "deleteAction");
+		
+		self::callActionForMethod($method, $bdd, $table, $key, $input);
 	}
 }
 
 new API();
 
 function api_main($method, $params, $body) {
-	if(count($params)<2) {
-		echo "ERROR: at least 2 parameters are needed";
+	$minimumParameterCount = 2;
+
+	if(count($params)<$minimumParameterCount) {
+		for($i=count($params); $i<$minimumParameterCount; $i++) {
+			$params[$i] = "";
+		}
 		return;
 	}
 
@@ -71,14 +50,8 @@ function api_main($method, $params, $body) {
 		var_dump($body);
 		echo "\nResponse:\n";
 	}
-	//phpinfo();
-	//echo $method." localhost/api/".$params["table"]."/".$params["key"];
-	//var_dump($body);
+
 	API::reqArgs($method, $params["p0"], $params["p1"], $body);
-	//echo "Test:";
-	//echo "YESSSSSS:".$params["table"]."+".$params["key"]."+";
-	//var_dump($body);
-	//echo " END";
 }
 
 ?>

@@ -2,7 +2,7 @@
 Require_once 'config.php';
 Class BDD
 {
-	public Function getAction($table, $key)
+	public Function getAction($table, $key, $input)
 	{
 		try {
 			//echo $key;
@@ -58,7 +58,7 @@ Class BDD
 	}
 
 	//insert a row from selected table
-	public Function postAction($table, $set)
+	public Function postAction($table, $key, $set)
 	{
 		
 		try{
@@ -89,7 +89,7 @@ Class BDD
 	}
 
 	//delete a row from selected table
-	public Function deleteAction($table, $key)
+	public Function deleteAction($table, $key, $input)
 	{
 		try{
 			$requete = singleton::getInstance()->prepare("DELETE FROM ".$table." WHERE id=:_key");

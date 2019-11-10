@@ -43,7 +43,6 @@ crouter.addRoute("/api", 3).all(function(req, res) {
       res.send(utils.formatExecPhpError(error));
       return;
     }
-
     php.api_main(req.method, req.params, req.body, function(err, result, output, printed) {
       if(err) {
         res.send(utils.formatExecPhpError(err));
