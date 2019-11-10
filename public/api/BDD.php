@@ -2,8 +2,10 @@
 Require_once 'config.php';
 Class BDD
 {
-	public Function getAction($table, $key, $input)
+	public Function getAction($params, $input)
 	{
+		$table = $params["p0"];
+		$key = $params["p1"];
 		try {
 			//echo $key;
 			$requete = singleton::getInstance()->prepare("SELECT * FROM ".$table." WHERE id=:_key");
@@ -27,9 +29,10 @@ Class BDD
 	}
 
 	//update selected table 
-	public Function putAction($table, $key, $set)
+	public Function putAction($params, $set)
 	{
-		
+		$table = $params["p0"];
+		$key = $params["p1"];
 		try {
 			$input = json_decode($set);
 
@@ -58,9 +61,9 @@ Class BDD
 	}
 
 	//insert a row from selected table
-	public Function postAction($table, $key, $set)
+	public Function postAction($params, $set)
 	{
-		
+		$table = $params["p0"];
 		try{
 			$input = json_decode($set);
 
@@ -89,8 +92,10 @@ Class BDD
 	}
 
 	//delete a row from selected table
-	public Function deleteAction($table, $key, $input)
+	public Function deleteAction($params, $input)
 	{
+		$table = $params["p0"];
+		$key = $params["p1"];
 		try{
 			$requete = singleton::getInstance()->prepare("DELETE FROM ".$table." WHERE id=:_key");
 			$requete->bindValue('_key', $key, PDO::PARAM_STR);

@@ -10,22 +10,22 @@ class API
 		self::$actions[$method] = $action;
 	}
 
-	static function callActionForMethod($method, $db, $dbTable, $dbKey, $dbInput) {
+	static function callActionForMethod($method, $db, $dbParams, $dbInput) {
 		foreach(self::$actions as $key => $iterator) {
 			if($key === $method) {
-				$db->$iterator($dbTable, $dbKey, $dbInput);
+				$db->$iterator($dbParams, $dbInput);
 			}
 		}
 	}
 
-	static function reqArgs($method, $table, $key, $input) {		
+	static function reqArgs($method, $params, $input) {		
 		$bdd = new BDD();
-		self::registerActionForMethod("GET", "getAction");
-		self::registerActionForMethod("POST", "postAction");
-		self::registerActionForMethod("PUT", "putAction");
-		self::registerActionForMethod("DELETE", "deleteAction");
+		self::registerActionForMethod('GET', 'getAction');
+		self::registerActionForMethod('POST', 'postAction');
+		self::registerActionForMethod('PUT', 'putAction');
+		self::registerActionForMethod('DELETE', 'deleteAction');
 		
-		self::callActionForMethod($method, $bdd, $table, $key, $input);
+		self::callActionForMethod($method, $bdd, $params, $input);
 	}
 }
 
@@ -51,7 +51,7 @@ function api_main($method, $params, $body) {
 		echo "\nResponse:\n";
 	}
 
-	API::reqArgs($method, $params["p0"], $params["p1"], $body);
+	API::reqArgs($method, $params, $body);
 }
 
 ?>
