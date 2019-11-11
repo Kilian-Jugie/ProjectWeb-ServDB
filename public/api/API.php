@@ -1,6 +1,8 @@
 <?php 
-include "BDD.php";
-
+require_once "actions/action_get.php";
+require_once "actions/action_post.php";
+require_once "actions/action_put.php";
+require_once "actions/action_delete.php";
 
 class API
 {
@@ -10,22 +12,21 @@ class API
 		self::$actions[$method] = $action;
 	}
 
-	static function callActionForMethod($method, $db, $dbParams, $dbInput) {
+	static function callActionForMethod($method, $dbParams, $dbInput) {
 		foreach(self::$actions as $key => $iterator) {
 			if($key === $method) {
-				$db->$iterator($dbParams, $dbInput);
+				$iterator->execute($dbParams, $dbInput);
 			}
 		}
 	}
 
 	static function reqArgs($method, $params, $input) {		
-		$bdd = new BDD();
-		self::registerActionForMethod('GET', 'getAction');
-		self::registerActionForMethod('POST', 'postAction');
-		self::registerActionForMethod('PUT', 'putAction');
-		self::registerActionForMethod('DELETE', 'deleteAction');
+		self::registerActionForMethod('GET', ActionGet::getInstance());
+		self::registerActionForMethod('POST', ActionPost::getInstance());
+		self::registerActionForMethod('PUT', ActionPut::getInstance());
+		self::registerActionForMethod('DELETE', ActionDelete::getInstance());
 		
-		self::callActionForMethod($method, $bdd, $params, $input);
+		self::callActionForMethod($method, $params, $input);
 	}
 }
 
@@ -50,8 +51,8 @@ function api_main($method, $params, $body) {
 		var_dump($body);
 		echo "\nResponse:\n";
 	}
-
 	API::reqArgs($method, $params, $body);
+
 }
 
 ?>
