@@ -4,6 +4,8 @@ require_once "actions/action_post.php";
 require_once "actions/action_put.php";
 require_once "actions/action_delete.php";
 
+require_once "request/request_viewall.php";
+
 class API
 {
 	private static $actions = array();
@@ -20,8 +22,10 @@ class API
 		}
 	}
 
-	static function reqArgs($method, $params, $input) {		
+	static function reqArgs($method, $params, $input) {
 		self::registerActionForMethod('GET', ActionGet::getInstance());
+		ActionGet::getInstance()->addRequest(new RequestViewAll("viewall"));
+
 		self::registerActionForMethod('POST', ActionPost::getInstance());
 		self::registerActionForMethod('PUT', ActionPut::getInstance());
 		self::registerActionForMethod('DELETE', ActionDelete::getInstance());
@@ -30,8 +34,11 @@ class API
 	}
 }
 
-new API();
-
+/**
+ * PSR-1 Note: This function does not follow camelCase rule because
+ * of it specificity of not be called from PHP code but from js code.
+ * This is the only exception allowed to this rule.
+ */
 function api_main($method, $params, $body) {
 	$minimumParameterCount = 2;
 
@@ -52,7 +59,6 @@ function api_main($method, $params, $body) {
 		echo "\nResponse:\n";
 	}
 	API::reqArgs($method, $params, $body);
-
 }
 
 ?>

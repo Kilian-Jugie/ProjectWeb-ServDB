@@ -2,7 +2,7 @@
 require_once 'config.php';
 require_once 'action.php';
 
-class ActionPost implements Action {
+class ActionPost extends Action {
     public function execute($params, $input) {
         $table = $params["p0"];
 		try{

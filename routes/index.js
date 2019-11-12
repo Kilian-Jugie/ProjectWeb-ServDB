@@ -37,11 +37,11 @@ router.use(bodyParser.json());
 
 crouter = cesiRouter.CesiRouter.Instance();
 
-crouter.addRoute("/api", 3).all(function (req, res) {
+crouter.addRoute("/api", 5).all(function (req, res) {
   try {
   execPhp("../public/api/API.php", "php", function (error, php, output) {
     if (error) {
-      res.send(error);
+      res.send(error+";"+output);
     }
     else {
       php.api_main(req.method, req.params, req.body, function (err, result, output, printed) {

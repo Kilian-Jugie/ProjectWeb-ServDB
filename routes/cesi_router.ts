@@ -45,7 +45,7 @@ class CesiRoute {
                 paramsPath+=('/:p'+n);
             }
             //console.log("Adding route: "+this.m_Root+paramsPath);
-            this.m_Router.all(this.m_Root+paramsPath, fnc)
+            this.m_Router.all(this.m_Root+paramsPath, fnc);
         }
         return this;
     }
