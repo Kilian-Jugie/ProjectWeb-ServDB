@@ -11,6 +11,7 @@
             }
             catch (PDOException $e) {
                 echo $e->getMessage();
+                echo $params['p1'];
             }
         }
     }
