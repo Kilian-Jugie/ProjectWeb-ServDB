@@ -8,7 +8,7 @@ class RequestAddUser extends Request {
         //$key = $params["p2"];
 
 		try {
-			$requete = singleton::getInstance()->prepare("CALL add_user(:_last_name,:_first_name,:_email,:_password,:_img_path,:_address,:_user_pseudo,:_newsletter,:_age,:_id_city)");
+			$requete = singleton::getInstance()->prepare("CALL add_user(:_last_name,:_first_name,:_email,:_password,:_img_path,:_address,:_user_pseudo,:_news_letter,:_age,:_id_city)");
 			$requete->bindValue(':_last_name', $input['last_name'], PDO::PARAM_STR);
 			$requete->bindValue(':_first_name', $input['first_name'], PDO::PARAM_STR);
 			$requete->bindValue(':_email', $input['email'], PDO::PARAM_STR);
@@ -30,7 +30,7 @@ class RequestAddUser extends Request {
 		}
 		catch (PDOException $e) {
 			echo $e->getMessage();
-			echo json_encode($input);
+			echo json_encode($input);	
 		}
     }
 }
