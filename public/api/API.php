@@ -5,6 +5,7 @@ require_once "actions/action_put.php";
 require_once "actions/action_delete.php";
 
 require_once "request/request_viewall.php";
+require_once "request/request_adduser.php";
 
 class API
 {
@@ -27,6 +28,8 @@ class API
 		ActionGet::getInstance()->addRequest(new RequestViewAll("viewall"));
 
 		self::registerActionForMethod('POST', ActionPost::getInstance());
+		ActionPost::getInstance()->addRequest(new RequestAddUser("adduser"));
+
 		self::registerActionForMethod('PUT', ActionPut::getInstance());
 		self::registerActionForMethod('DELETE', ActionDelete::getInstance());
 		
