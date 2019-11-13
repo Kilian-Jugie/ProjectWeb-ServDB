@@ -21,7 +21,7 @@ class RequestAddUser extends Request {
 			$requete->bindValue(':_id_city', $input['id_city'], PDO::PARAM_STR);
 			$requete->execute();
 			$result = $requete->fetchAll();
-			if(!$result){
+			if(empty($result)){
 				$response = "User been correctfully added";
 			}else{ 
 				$response = "Error while adding user";
