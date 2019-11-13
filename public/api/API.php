@@ -45,15 +45,6 @@ class API
  * This is the only exception allowed to this rule.
  */
 function api_main($method, $params, $body) {
-	$minimumParameterCount = 2;
-
-	if(count($params)<$minimumParameterCount) {
-		for($i=count($params); $i<$minimumParameterCount; $i++) {
-			$params[$i] = "";
-		}
-		return;
-	}
-
 	if($body&&$body["test"]===true) {
 		echo "Method:\n";
 		var_dump($method);
