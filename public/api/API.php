@@ -7,6 +7,7 @@ require_once "actions/action_delete.php";
 require_once "request/request_viewall.php";
 require_once "request/request_adduser.php";
 require_once "request/request_selectcampus.php";
+require_once "request/request_selectuserdata.php";
 
 class API
 {
@@ -28,6 +29,7 @@ class API
 		self::registerActionForMethod('GET', ActionGet::getInstance());
 		ActionGet::getInstance()->addRequest(new RequestViewAll("viewall"));
 		ActionGet::getInstance()->addRequest(new RequestSelectCampus("select_campus"));
+		ActionGet::getInstance()->addRequest(new RequestSelectUserData("user_data"));
 
 		self::registerActionForMethod('POST', ActionPost::getInstance());
 		ActionPost::getInstance()->addRequest(new RequestAddUser("add_user"));

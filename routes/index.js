@@ -37,32 +37,32 @@ router.use(bodyParser.json());
 
 crouter = cesiRouter.CesiRouter.Instance();
 
-crouter.addRoute("/api", 5).all(function (req, res) {
+crouter.addRoute("/api", 10).all(function (req, res) {
   try {
-  execPhp("../public/api/API.php", "php", function (error, php, output) {
-    if (error) {
-      res.send(error+";"+output);
-    }
-    else {
-      php.api_main(req.method, req.params, req.body, function (err, result, output, printed) {
-        if (err) {
-          var toDisplay = "\n===== BEGIN OF PHP ERROR REPORT =====\n";
-          toDisplay += err;
-          toDisplay += "\n===== END OF ERROR REPORT =====\n";
-          res.send(toDisplay);
-        }
-        else
-          res.send(printed);
-      });
-    }
-  });
-}
-catch(err) {
-  var toDisplay = "===== GENERAL ERROR REPORT =====\n";
-  toDisplay += err;
-  toDisplay += "\n===== END OF ERROR REPORT =====\n";
-  res.send(toDisplay);
-}
+    execPhp("../public/api/API.php", "php", function (error, php, output) {
+      if (error) {
+        res.send(error + ";" + output);
+      }
+      else {
+        php.api_main(req.method, req.params, req.body, function (err, result, output, printed) {
+          if (err) {
+            var toDisplay = "\n===== BEGIN OF PHP ERROR REPORT =====\n";
+            toDisplay += err;
+            toDisplay += "\n===== END OF ERROR REPORT =====\n";
+            res.send(toDisplay);
+          }
+          else
+            res.send(printed);
+        });
+      }
+    });
+  }
+  catch (err) {
+    var toDisplay = "===== GENERAL ERROR REPORT =====\n";
+    toDisplay += err;
+    toDisplay += "\n===== END OF ERROR REPORT =====\n";
+    res.send(toDisplay);
+  }
 
 });
 
