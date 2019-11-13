@@ -7,8 +7,8 @@ class RequestViewAll extends Request {
         $table = $params["p1"];
 		$key = $params["p2"];
 		try {
-			$requete = singleton::getInstance()->prepare("SELECT * FROM ".$table." WHERE id=:_key");
-			$requete->bindValue('_key', $key, PDO::PARAM_STR);
+			$requete = singleton::getInstance()->prepare("SELECT * FROM ".$table."");
+			//$requete->bindValue('_key', $key, PDO::PARAM_STR);
 			$requete->execute();
 			$result = $requete->fetchAll();
 			echo json_encode($result);
