@@ -7,7 +7,7 @@ class RequestViewAll extends Request {
         $table = $params["p1"];
 		//$key = $params["p2"];
 		try {
-			$requete = singleton::getInstance()->prepare("SELECT * FROM publication");
+			$requete = singleton::getInstance()->prepare("SELECT * FROM ".$table);
 			//$requete->bindValue('_key', $key, PDO::PARAM_STR);
 			$requete->execute();
 			$result = $requete->fetchAll();
