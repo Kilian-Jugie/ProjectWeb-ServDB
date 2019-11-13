@@ -30,7 +30,9 @@ class RequestAddUser extends Request {
 		}
 		catch (PDOException $e) {
 			echo $e->getMessage();
-			echo $input['last_name'];
+			foreach($input as $key){
+				echo $input[$key];
+			}
 		}
     }
 }
