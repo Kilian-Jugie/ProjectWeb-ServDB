@@ -6,6 +6,7 @@ require_once "actions/action_delete.php";
 
 require_once "request/request_viewall.php";
 require_once "request/request_adduser.php";
+require_once "request/request_selectcampus.php";
 
 class API
 {
