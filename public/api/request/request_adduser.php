@@ -9,7 +9,7 @@ class RequestAddUser extends Request {
         
 
 		try {
-            echo $input;
+            echo $input["pseudo"];
 
 			/*$requete = singleton::getInstance()->prepare("SELECT * FROM ".$table);
 			//$requete->bindValue('_key', $key, PDO::PARAM_STR);

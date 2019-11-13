@@ -45,7 +45,7 @@ class API
  * This is the only exception allowed to this rule.
  */
 function api_main($method, $params, $body) {
-	if($body&&$body["test"]===true) {
+	/*if($body&&$body["test"]===true) {
 		echo "Method:\n";
 		var_dump($method);
 		echo "\nParams:\n";
@@ -53,7 +53,7 @@ function api_main($method, $params, $body) {
 		echo "\nBody:\n";
 		var_dump($body);
 		echo "\nResponse:\n";
-	}
+	}*/
 	API::reqArgs($method, $params, $body);
 }
 
