@@ -26,6 +26,7 @@ class API
 	static function reqArgs($method, $params, $input) {
 		self::registerActionForMethod('GET', ActionGet::getInstance());
 		ActionGet::getInstance()->addRequest(new RequestViewAll("viewall"));
+		ActionGet::getInstance()->addRequest(new RequestSelectCampus("select_campus"));
 
 		self::registerActionForMethod('POST', ActionPost::getInstance());
 		ActionPost::getInstance()->addRequest(new RequestAddUser("adduser"));
