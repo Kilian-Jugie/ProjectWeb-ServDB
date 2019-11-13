@@ -15,8 +15,8 @@ class RequestAddUser extends Request {
 			$requete->bindValue(':_password', $input['password'], PDO::PARAM_STR);
 			$requete->bindValue(':_img_path', $input['img_path'], PDO::PARAM_STR);
 			$requete->bindValue(':_address', $input['address'], PDO::PARAM_STR);	
-			$requete->bindValue(':_user_pseudo', $input['user_pseudo'], PDO::PARAM_STR);
 			$requete->bindValue(':_news_letter', $input['news_letter'], PDO::PARAM_STR);
+			$requete->bindValue(':_user_pseudo', $input['user_pseudo'], PDO::PARAM_STR);
 			$requete->bindValue(':_age', $input['age'], PDO::PARAM_STR);
 			$requete->bindValue(':_id_city', $input['id_city'], PDO::PARAM_STR);
 			$requete->execute();
