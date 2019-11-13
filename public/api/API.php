@@ -30,7 +30,7 @@ class API
 		ActionGet::getInstance()->addRequest(new RequestSelectCampus("select_campus"));
 
 		self::registerActionForMethod('POST', ActionPost::getInstance());
-		ActionPost::getInstance()->addRequest(new RequestAddUser("adduser"));
+		ActionPost::getInstance()->addRequest(new RequestAddUser("add_user"));
 
 		self::registerActionForMethod('PUT', ActionPut::getInstance());
 		self::registerActionForMethod('DELETE', ActionDelete::getInstance());
