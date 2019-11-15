@@ -1,7 +1,7 @@
 <?php 
     require_once "request.php";
 
-    class RequestSelectUserData extends Request {
+    class RequestSelectDataWhenConnect extends Request {
         public function execute($params,$input) {
             try {
                 $requete = singleton::getInstance()->prepare("CALL select_data_when_connect(:_user_email)");

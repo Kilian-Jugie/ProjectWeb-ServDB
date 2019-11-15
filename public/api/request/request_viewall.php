@@ -1,11 +1,11 @@
 <?php
 
 require_once "request.php";
-require_once '../utils.php';
+require_once 'utils.php';
 
 class RequestViewAll extends Request {
     public function execute($params,$input) {
-        $table = $params["p1"];
+        //$table = $params["p1"];
 		//$key = $params["p2"];
 		try {
 			//$requete = singleton::getInstance()->prepare("SELECT * FROM ".$table);
