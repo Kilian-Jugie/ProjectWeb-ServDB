@@ -1,6 +1,7 @@
 <?php
 
 require_once "request.php";
+require_once 'utils.php';
 
 class RequestViewAll extends Request {
     public function execute($params,$input) {
