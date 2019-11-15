@@ -18,28 +18,32 @@
                 $requete->execute();
                 $result = $requete->fetchAll();
 
-                $ret["asso"] = $result["COUNT(*)"];
+		//echo json_encode($result);
+                $ret["asso"] = $result[0]["COUNT(*)"];
 
                 $requete = pdoprintf(singleton::getInstance(), "CALL count_bde_member_campus(%i)", $params["p1"]);
                 $requete->execute();
                 $result = $requete->fetchAll();
                 
-                $ret["member"] = $result["COUNT(*)"];
+                $ret["member"] = $result[0]["COUNT(*)"];
 
                 $requete = pdoprintf(singleton::getInstance(), "CALL count_user_by_campus(%i)", $params["p1"]);
                 $requete->execute();
                 $result = $requete->fetchAll();
                 
-                $ret["follower"] = $result["COUNT(*)"];
+                $ret["follower"] = $result[0]["COUNT(*)"];
 
                 $requete = pdoprintf(singleton::getInstance(), "CALL count_event_by_campus(%i)", $params["p1"]);
                 $requete->execute();
                 $result = $requete->fetchAll();
                 
-                $ret["event"] = $result["COUNT(*)"];
+		$ret["event"] = $result[0]["nb_event_actif"];
+
+		echo json_encode($ret);
             }
             catch (PDOException $e) {
                 echo $e->getMessage();
             }
         }
     }
+
