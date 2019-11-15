@@ -5,7 +5,7 @@
     class RequestAddType extends Request {
         public function execute($params,$input) {
             try {
-                $requete = pdoprintf(singleton::getInstance(), 'CALL add_product_type(%s)', $params['input_label']);
+                $requete = pdoprintf(singleton::getInstance(), 'CALL add_product_type(%s)', $input['input_label']);
                 $requete->execute();
                 $result = $requete->fetchAll();
 
