@@ -11,6 +11,14 @@ require_once "request/request_selectdatawhenconnect.php";
 
 require_once "request/get/request_count_bde.php";
 require_once "request/get/request_select_all_order.php";
+require_once "request/get/all_event.php";
+
+require_once "request/post/add_campus.php";
+require_once "request/post/add_event.php";
+require_once "request/post/add_product.php";
+require_once "request/post/add_size.php";
+require_once "request/post/add_status.php";
+require_once "request/post/add_type.php";
 
 class API
 {
@@ -38,6 +46,12 @@ class API
 
 		self::registerActionForMethod('POST', ActionPost::getInstance());
 		ActionPost::getInstance()->addRequest(new RequestAddUser("add_user"));
+		ActionPost::getInstance()->addRequest(new RequestAddCampus("add_campus"));
+		ActionPost::getInstance()->addRequest(new RequestAddEvent("add_event"));
+		ActionPost::getInstance()->addRequest(new RequestAddProduct("add_product"));
+		ActionPost::getInstance()->addRequest(new RequestAddSize("add_size"));
+		ActionPost::getInstance()->addRequest(new RequestAddStatus("add_status"));
+		ActionPost::getInstance()->addRequest(new RequestAddType("add_type"));
 
 		self::registerActionForMethod('PUT', ActionPut::getInstance());
 		self::registerActionForMethod('DELETE', ActionDelete::getInstance());
