@@ -1,6 +1,6 @@
 <?php 
-    require_once "request.php";
-    require_once 'utils.php';
+    require_once dirname(dirname(__FILE__))."/request.php";
+    require_once dirname(dirname(__FILE__)).'/utils.php';
 
     /**
      * count_asso_campus p1 -> asso
