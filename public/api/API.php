@@ -8,7 +8,9 @@ require_once "request/request_viewall.php";
 require_once "request/request_adduser.php";
 require_once "request/request_selectcampus.php";
 require_once "request/request_selectdatawhenconnect.php";
+
 require_once "request/get/request_count_bde.php";
+require_once "request/get/request_select_all_order.php";
 
 class API
 {
@@ -32,6 +34,7 @@ class API
 		ActionGet::getInstance()->addRequest(new RequestSelectCampus("select_campus"));
 		ActionGet::getInstance()->addRequest(new RequestSelectDataWhenConnect("data_when_connect"));
 		ActionGet::getInstance()->addRequest(new RequestCountBde("count_bde"));
+		ActionGet::getInstance()->addRequest(new RequestSelectAllOrder("all_order"));
 
 		self::registerActionForMethod('POST', ActionPost::getInstance());
 		ActionPost::getInstance()->addRequest(new RequestAddUser("add_user"));

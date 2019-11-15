@@ -18,7 +18,6 @@
                 $requete->execute();
                 $result = $requete->fetchAll();
 
-		//echo json_encode($result);
                 $ret["asso"] = $result[0]["COUNT(*)"];
 
                 $requete = pdoprintf(singleton::getInstance(), "CALL count_bde_member_campus(%i)", $params["p1"]);
