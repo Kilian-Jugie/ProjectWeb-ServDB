@@ -8,7 +8,6 @@ function pdoprintf($pdo, $request, ...$params) {
     $requestReady = str_replace('%i', '?', $requestReady);
     
     $pdoRequest = $pdo->prepare($requestReady);
-    echo "Preparation request: -".$requestReady."-\n<br>";
     
     $requestArray = str_split($request);
     $requestArraySize = count($requestArray);
