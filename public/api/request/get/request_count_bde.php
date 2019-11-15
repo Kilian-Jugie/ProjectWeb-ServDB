@@ -1,6 +1,6 @@
 <?php 
-    require_once "request.php";
-    require_once 'utils.php';
+    require_once dirname(dirname(__FILE__))."/request.php";
+    require_once dirname(dirname(__FILE__)).'/utils.php';
 
     /**
      * count_asso_campus p1 -> asso
@@ -9,7 +9,7 @@
      * count_event_by_campus p1 -> event
      */
 
-    class RequestCount extends Request {
+    class RequestCountBde extends Request {
         public function execute($params,$input) {
             try {
                 $requete = pdoprintf(singleton::getInstance(), "CALL count_asso_campus(%i)", $params["p1"]);
