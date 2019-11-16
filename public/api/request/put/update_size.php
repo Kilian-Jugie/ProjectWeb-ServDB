@@ -5,7 +5,7 @@
     class RequestUpdateSize extends Request {
         public function execute($params,$input) {
             try {
-                $requete = pdoprintf(singleton::getInstance(), "CALL update_size(%s)",
+                $requete = pdoprintf(singleton::getInstance(), "CALL update_size(%i, %s)",
                     $params['p1'], $input['label']);
                 $requete->execute();
                 $result = $requete->fetchAll();

@@ -5,7 +5,7 @@
     class RequestUpdateCampus extends Request {
         public function execute($params,$input) {
             try {
-                $requete = pdoprintf(singleton::getInstance(), "CALL update_campus(%s)",
+                $requete = pdoprintf(singleton::getInstance(), "CALL update_campus(%i, %s)",
                     $params['p1'], $input['label']);
                 $requete->execute();
                 $result = $requete->fetchAll();
