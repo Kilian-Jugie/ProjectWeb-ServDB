@@ -5,7 +5,7 @@
     class RequestAddStatus extends Request {
         public function execute($params,$input) {
             try {
-                $requete = pdoprintf(singleton::getInstance(), "CALL add_status(%s)", $input['input_label']);
+                $requete = pdoprintf(singleton::getInstance(), "CALL add_status(%s, %i)", $input['input_label'], $input['priority']);
                 $requete->execute();
                 $result = $requete->fetchAll();
 
