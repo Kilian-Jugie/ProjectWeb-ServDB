@@ -83,6 +83,7 @@ class API
 		ActionPut::getInstance()->addRequest(new RequestUpdateUserData('update_user_data'));
 		ActionPut::getInstance()->addRequest(new RequestUpdateProductType("update_product_type"));
 		ActionPut::getInstance()->addRequest(new RequestUpdatePublicationType("update_publication_type"));
+		ActionPut::getInstance()->addRequest(new RequestUpdateUserStatus("update_user_status"));
 
 		self::registerActionForMethod('DELETE', ActionDelete::getInstance());
 		
