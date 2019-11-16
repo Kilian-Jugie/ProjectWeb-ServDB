@@ -5,7 +5,7 @@
     class RequestUpdateProduct extends Request {
         public function execute($params,$input) {
             try {
-                $requete = pdoprintf(singleton::getInstance(), "CALL update_product_data(%s, %s, %s, %i, %i)",
+                $requete = pdoprintf(singleton::getInstance(), "CALL update_product_data(%i, %s, %s, %s, %i, %i)",
                     $params['p1'], $input['label'], $input['description'], $input['urlimage'], $input['price'],
                     $input['id_product_type']);
                 $requete->execute();
