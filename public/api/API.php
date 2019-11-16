@@ -30,6 +30,7 @@ require_once "request/put/update_status.php";
 require_once "request/put/update_stock.php";
 require_once "request/put/update_type.php";
 require_once "request/put/update_user_status.php";
+require_once "request/put/update_user_data.php";
 
 class API
 {
@@ -72,6 +73,7 @@ class API
 		ActionPut::getInstance()->addRequest(new RequestUpdateSize("update_size"));
 		ActionPut::getInstance()->addRequest(new RequestUpdateStatus("update_status"));
 		ActionPut::getInstance()->addRequest(new RequestUpdateStock("update_stock"));
+		ActionPut::getInstance()->addRequest(new RequestUpdateUserData('update_user_data'));
 
 		self::registerActionForMethod('DELETE', ActionDelete::getInstance());
 		
