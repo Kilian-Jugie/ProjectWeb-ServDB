@@ -5,7 +5,7 @@
     class RequestUpdateStatus extends Request {
         public function execute($params,$input) {
             try {
-                $requete = pdoprintf(singleton::getInstance(), "CALL update_publication_status(%i, %i)",
+                $requete = pdoprintf(singleton::getInstance(), "CALL update_status(%i, %i)",
                     $params['p1'], $input['id_status']);
                 $requete->execute();
                 $result = $requete->fetchAll();
