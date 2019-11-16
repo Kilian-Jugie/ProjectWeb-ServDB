@@ -33,6 +33,7 @@ require_once "request/put/update_stock.php";
 require_once "request/put/update_user_status.php";
 require_once "request/put/update_user_data.php";
 require_once "request/put/update_product_type.php";
+require_once "request/put/update_publication_type.php";
 
 class API
 {
@@ -79,6 +80,7 @@ class API
 		ActionPut::getInstance()->addRequest(new RequestUpdateStock("update_stock"));
 		ActionPut::getInstance()->addRequest(new RequestUpdateUserData('update_user_data'));
 		ActionPut::getInstance()->addRequest(new RequestUpdateProductType("update_product_type"));
+		ActionPut::getInstance()->addRequest(new RequestUpdatePublicationType("update_publication_type"));
 
 		self::registerActionForMethod('DELETE', ActionDelete::getInstance());
 		
