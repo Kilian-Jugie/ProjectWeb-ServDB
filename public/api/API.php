@@ -20,6 +20,17 @@ require_once "request/post/add_size.php";
 require_once "request/post/add_status.php";
 require_once "request/post/add_type.php";
 
+require_once "request/put/update_campus.php";
+require_once "request/put/update_event.php";
+require_once "request/put/update_own_data.php";
+require_once "request/put/update_own_event.php";
+require_once "request/put/update_product.php";
+require_once "request/put/update_size.php";
+require_once "request/put/update_status.php";
+require_once "request/put/update_stock.php";
+require_once "request/put/update_type.php";
+require_once "request/put/update_user_status.php";
+
 class API
 {
 	private static $actions = array();
@@ -54,6 +65,14 @@ class API
 		ActionPost::getInstance()->addRequest(new RequestAddType("add_type"));
 
 		self::registerActionForMethod('PUT', ActionPut::getInstance());
+		ActionPut::getInstance()->addRequest(new RequestUpdateCampus("update_campus"));
+		ActionPut::getInstance()->addRequest(new RequestUpdateEvent("update_event"));
+		ActionPut::getInstance()->addRequest(new RequestUpdateOwnData("update_own_data"));
+		ActionPut::getInstance()->addRequest(new RequestUpdateProduct("update_product"));
+		ActionPut::getInstance()->addRequest(new RequestUpdateSize("update_size"));
+		ActionPut::getInstance()->addRequest(new RequestUpdateStatus("update_status"));
+		ActionPut::getInstance()->addRequest(new RequestUpdateStock("update_stock"));
+
 		self::registerActionForMethod('DELETE', ActionDelete::getInstance());
 		
 		self::callActionForMethod($method, $params, $input);
