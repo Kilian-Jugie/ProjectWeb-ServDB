@@ -12,7 +12,7 @@ require_once "request/request_selectdatawhenconnect.php";
 require_once "request/get/request_count_bde.php";
 require_once "request/get/request_select_all_order.php";
 require_once "request/get/all_event.php";
-require_once "request/get/user_data.php"
+require_once "request/get/user_data.php";
 
 require_once "request/post/add_campus.php";
 require_once "request/post/add_event.php";
