@@ -20,6 +20,7 @@ require_once "request/post/add_product.php";
 require_once "request/post/add_size.php";
 require_once "request/post/add_status.php";
 require_once "request/post/add_type.php";
+require_once "request/post/add_publication_type.php";
 
 require_once "request/put/update_campus.php";
 require_once "request/put/update_event.php";
@@ -66,6 +67,7 @@ class API
 		ActionPost::getInstance()->addRequest(new RequestAddSize("add_size"));
 		ActionPost::getInstance()->addRequest(new RequestAddStatus("add_status"));
 		ActionPost::getInstance()->addRequest(new RequestAddType("add_type"));
+		ActionPost::getInstance()->addRequest(new RequestAddPublicationType("add_publication_type"));
 
 		self::registerActionForMethod('PUT', ActionPut::getInstance());
 		ActionPut::getInstance()->addRequest(new RequestUpdateCampus("update_campus"));
