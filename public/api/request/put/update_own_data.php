@@ -7,7 +7,7 @@
             $accountId = $params['p1'];
             try {
                 $requete = pdoprintf(singleton::getInstance(), 'CALL update_own_account(%i, %s, %s, %s, %s, %s, %s, %i, %i, %i)',
-                    $accountId, $input['firstname'], $input['lastname'], $input['email'], $input['thumbnail'], $input['address'], $input['pseudo'], 
+                    $accountId, $input['lastname'], $input['firstname'], $input['email'], $input['thumbnail'], $input['address'], $input['pseudo'], 
                     $input['newsletter'], $input['age'], $input['campus_id']);
                 $requete->execute();
                 $result = $requete->fetchAll();
