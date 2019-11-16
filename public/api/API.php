@@ -14,6 +14,7 @@ require_once "request/get/request_select_all_order.php";
 require_once "request/get/all_event.php";
 require_once "request/get/user_data.php";
 require_once "request/get/own_owner.php";
+require_once "request/get/order_detail.php";
 
 require_once "request/post/add_campus.php";
 require_once "request/post/add_event.php";
@@ -62,6 +63,7 @@ class API
 		ActionGet::getInstance()->addRequest(new RequestSelectAllOrder("all_order"));
 		ActionGet::getInstance()->addRequest(new RequestUserData("user_data"));
 		ActionGet::getInstance()->addRequest(new RequestOwnOrder("own_order"));
+		ActionGet::getInstance()->addRequest(new RequestOrderDetail("order_detail"));
 
 		self::registerActionForMethod('POST', ActionPost::getInstance());
 		ActionPost::getInstance()->addRequest(new RequestAddUser("add_user"));
