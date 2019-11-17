@@ -39,6 +39,7 @@ crouter = cesiRouter.CesiRouter.Instance();
 
 crouter.addRoute("/api", 10).all(function (req, res) {
   res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE');
   try {
     execPhp("../public/api/API.php", "php", function (error, php, output) {
       if (error) {
