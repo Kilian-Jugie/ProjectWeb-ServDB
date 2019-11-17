@@ -19,7 +19,7 @@ require_once "request/get/all_product.php";
 require_once "request/get/cart_data.php";
 require_once "request/get/cart_detail.php";
 require_once "request/get/all_product_type.php";
-require_once "request/get/own_owner.php";
+require_once "request/get/own_event.php";
 
 require_once "request/post/add_campus.php";
 require_once "request/post/add_event.php";
