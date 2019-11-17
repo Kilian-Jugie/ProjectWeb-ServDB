@@ -55,6 +55,7 @@ require_once "request/delete/delete_status.php";
 require_once "request/delete/delete_stock.php";
 require_once "request/delete/delete_type.php";
 require_once "request/delete/delete_user.php";
+require_once "request/delete/delete_product_cart.php";
 
 class API
 {
@@ -124,6 +125,7 @@ class API
 		ActionDelete::getInstance()->addRequest(new RequestDeleteStock("delete_stock"));
 		ActionDelete::getInstance()->addRequest(new RequestDeleteType("delete_type"));
 		ActionDelete::getInstance()->addRequest(new RequestDeleteUser("delete_user"));
+		ActionDelete::getInstance()->addRequest(new RequestDeleteProductCart("delete_product_cart"));
 		
 		self::callActionForMethod($method, $params, $input);
 	}
