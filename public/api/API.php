@@ -43,6 +43,7 @@ require_once "request/put/update_user_status.php";
 require_once "request/put/update_user_data.php";
 require_once "request/put/update_product_type.php";
 require_once "request/put/update_publication_type.php";
+require_once "request/put/update_product_cart.php";
 
 require_once "request/delete/delete_campus.php";
 require_once "request/delete/delete_comment.php";
@@ -111,6 +112,7 @@ class API
 		ActionPut::getInstance()->addRequest(new RequestUpdateProductType("update_product_type"));
 		ActionPut::getInstance()->addRequest(new RequestUpdatePublicationType("update_publication_type"));
 		ActionPut::getInstance()->addRequest(new RequestUpdateUserStatus("update_user_status"));
+		ActionPut::getInstance()->addRequest(new RequestUpdateProductCart("update_product_cart"));
 
 		self::registerActionForMethod('DELETE', ActionDelete::getInstance());
 		ActionDelete::getInstance()->addRequest(new RequestDeleteCampus("delete_campus"));
