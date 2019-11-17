@@ -64,6 +64,7 @@ class API
 		ActionGet::getInstance()->addRequest(new RequestUserData("user_data"));
 		ActionGet::getInstance()->addRequest(new RequestOwnOrder("own_order"));
 		ActionGet::getInstance()->addRequest(new RequestOrderDetail("order_detail"));
+		ActionGet::getInstance()->addRequest(new RequestAllEvent("all_event"));
 
 		self::registerActionForMethod('POST', ActionPost::getInstance());
 		ActionPost::getInstance()->addRequest(new RequestAddUser("add_user"));
