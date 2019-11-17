@@ -24,6 +24,7 @@ require_once "request/get/get_stock.php";
 require_once "request/get/all_stock.php";
 require_once "request/get/all_size.php";
 require_once "request/get/all_order.php";
+require_once "request/get/request_actif_event_data.php";
 
 require_once "request/post/add_campus.php";
 require_once "request/post/add_event.php";
@@ -99,6 +100,7 @@ class API
 		ActionGet::getInstance()->addRequest(new RequestAllStock("all_stock"));
 		ActionGet::getInstance()->addRequest(new RequestAllSize("all_size"));
 		ActionGet::getInstance()->addRequest(new RequestAllOrder("all_order"));
+		ActionGet::getInstance()->addRequest(new RequestActifEventData("actif_event_data"));
 
 		self::registerActionForMethod('POST', ActionPost::getInstance());
 		ActionPost::getInstance()->addRequest(new RequestAddUser("add_user"));
