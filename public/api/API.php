@@ -29,6 +29,7 @@ require_once "request/post/add_type.php";
 require_once "request/post/add_publication_type.php";
 require_once "request/post/add_role.php";
 require_once "request/post/add_to_cart.php";
+require_once "request/post/add_product_type.php";
 
 require_once "request/put/update_campus.php";
 require_once "request/put/update_event.php";
@@ -96,6 +97,7 @@ class API
 		ActionPost::getInstance()->addRequest(new RequestAddPublicationType("add_publication_type"));
 		ActionPost::getInstance()->addRequest(new RequestAddRole("add_role"));
 		ActionPost::getInstance()->addRequest(new RequestAddToCart("add_to_cart"));
+		ActionPost::getInstance()->addRequest(new RequestAddProductType("add_product_type"));
 
 		self::registerActionForMethod('PUT', ActionPut::getInstance());
 		ActionPut::getInstance()->addRequest(new RequestUpdateCampus("update_campus"));
