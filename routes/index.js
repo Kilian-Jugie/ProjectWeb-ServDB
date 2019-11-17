@@ -38,6 +38,7 @@ router.use(bodyParser.json());
 crouter = cesiRouter.CesiRouter.Instance();
 
 crouter.addRoute("/api", 10).all(function (req, res) {
+  res.header('Access-Control-Allow-Origin', '*');
   try {
     execPhp("../public/api/API.php", "php", function (error, php, output) {
       if (error) {
