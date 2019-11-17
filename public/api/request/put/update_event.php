@@ -5,9 +5,8 @@
     class RequestUpdateEvent extends Request {
         public function execute($params,$input) {
             try {
-                $requete = pdoprintf(singleton::getInstance(), "CALL update_event(%i, %s, %s, %s, %i, %i, %i)",
-                    $params['p1'], $input['title'], $input['content'], $input['date'], $input['cost'],
-                    $input['id_occurence'], $input['id_status']);
+                $requete = pdoprintf(singleton::getInstance(), "CALL update_event(%i, %s, %s, %s, %i)",
+                    $params['p1'], $input['title'], $input['content'], $input['date'], $input['cost']);
                 $requete->execute();
                 $result = $requete->fetchAll();
 
