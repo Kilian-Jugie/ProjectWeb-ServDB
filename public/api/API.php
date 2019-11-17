@@ -38,6 +38,16 @@ require_once "request/put/update_user_data.php";
 require_once "request/put/update_product_type.php";
 require_once "request/put/update_publication_type.php";
 
+require_once "request/delete/delete_campus.php";
+require_once "request/delete/delete_comment.php";
+require_once "request/delete/delete_event.php";
+require_once "request/delete/delete_product.php";
+require_once "request/delete/delete_size.php";
+require_once "request/delete/delete_status.php";
+require_once "request/delete/delete_stock.php";
+require_once "request/delete/delete_type.php";
+require_once "request/delete/delete_user.php";
+
 class API
 {
 	private static $actions = array();
@@ -91,6 +101,13 @@ class API
 		ActionPut::getInstance()->addRequest(new RequestUpdateUserStatus("update_user_status"));
 
 		self::registerActionForMethod('DELETE', ActionDelete::getInstance());
+		ActionDelete::getInstance()->addRequest(new RequestDeleteCampus("delete_campus"));
+		ActionDelete::getInstance()->addRequest(new RequestDeleteProduct("delete_product"));
+		ActionDelete::getInstance()->addRequest(new RequestDeleteSize("delete_size"));
+		ActionDelete::getInstance()->addRequest(new RequestDeleteStatus("delete_status"));
+		ActionDelete::getInstance()->addRequest(new RequestDeleteStock("delete_stock"));
+		ActionDelete::getInstance()->addRequest(new RequestDeleteType("delete_type"));
+		ActionDelete::getInstance()->addRequest(new RequestDeleteUser("delete_user"));
 		
 		self::callActionForMethod($method, $params, $input);
 	}
