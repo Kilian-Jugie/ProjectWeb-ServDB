@@ -19,6 +19,7 @@ require_once "request/get/all_product.php";
 require_once "request/get/cart_data.php";
 require_once "request/get/cart_detail.php";
 require_once "request/get/all_product_type.php";
+require_once "request/get/own_owner.php";
 
 require_once "request/post/add_campus.php";
 require_once "request/post/add_event.php";
@@ -86,6 +87,7 @@ class API
 		ActionGet::getInstance()->addRequest(new RequestCartData("cart_data"));
 		ActionGet::getInstance()->addRequest(new RequestCartDetail("cart_detail"));
 		ActionGet::getInstance()->addRequest(new RequestAllProductType("all_product_type"));
+		ActionGet::getInstance()->addRequest(new RequestOwnEvent("own_event"));
 
 		self::registerActionForMethod('POST', ActionPost::getInstance());
 		ActionPost::getInstance()->addRequest(new RequestAddUser("add_user"));
