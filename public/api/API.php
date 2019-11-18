@@ -33,6 +33,7 @@ require_once "request/get/all_user.php";
 require_once "request/get/user_per_event.php";
 require_once "request/get/display_top_three_article.php";
 require_once "request/get/all_occurrence.php";
+require_once "request/get/get_product.php";
 
 require_once "request/post/add_campus.php";
 require_once "request/post/add_event.php";
@@ -119,6 +120,7 @@ class API
 		ActionGet::getInstance()->addRequest(new RequestUserPerEvent("user_per_event"));
 		ActionGet::getInstance()->addRequest(new RequestTopThreeArticle("top_three_article"));
 		ActionGet::getInstance()->addRequest(new RequestAllOccurrence("all_occurrence"));
+		ActionGet::getInstance()->addRequest(new RequestGetProduct("get_product"));
 
 		self::registerActionForMethod('POST', ActionPost::getInstance());
 		ActionPost::getInstance()->addRequest(new RequestAddUser("add_user"));
