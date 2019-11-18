@@ -31,6 +31,7 @@ require_once "request/get/all_reaction.php";
 require_once "request/get/all_role.php";
 require_once "request/get/all_user.php";
 require_once "request/get/user_per_event.php";
+require_once "request/get/display_top_three_article.php";
 
 require_once "request/post/add_campus.php";
 require_once "request/post/add_event.php";
@@ -115,6 +116,7 @@ class API
 		ActionGet::getInstance()->addRequest(new RequestAllRole("all_role"));
 		ActionGet::getInstance()->addRequest(new RequestAllUser("all_user"));
 		ActionGet::getInstance()->addRequest(new RequestUserPerEvent("user_per_event"));
+		ActionGet::getInstance()->addRequest(new RequestTopThreeArticle("top_three_article"));
 
 		self::registerActionForMethod('POST', ActionPost::getInstance());
 		ActionPost::getInstance()->addRequest(new RequestAddUser("add_user"));

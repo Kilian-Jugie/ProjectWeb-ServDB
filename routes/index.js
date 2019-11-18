@@ -38,6 +38,8 @@ router.use(bodyParser.json());
 crouter = cesiRouter.CesiRouter.Instance();
 
 crouter.addRoute("/api", 10).all(function (req, res) {
+  //This to be modified to allow only the front server to
+  //make API requests ! Leaving it as this only for testing purpose !!!
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE');
   res.header('Access-Control-Allow-Headers', '*');
