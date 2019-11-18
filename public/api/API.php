@@ -27,6 +27,7 @@ require_once "request/get/all_order.php";
 require_once "request/get/request_actif_event_data.php";
 require_once "request/get/picture_pub.php";
 require_once "request/get/all_status.php";
+require_once "request/get/all_reaction.php";
 
 require_once "request/post/add_campus.php";
 require_once "request/post/add_event.php";
@@ -106,6 +107,7 @@ class API
 		ActionGet::getInstance()->addRequest(new RequestActifEventData("actif_event_data"));
 		ActionGet::getInstance()->addRequest(new RequestPicturePub("picture_pub"));
 		ActionGet::getInstance()->addRequest(new RequestAllStatus("all_status"));
+		ActionGet::getInstance()->addRequest(new RequestAllReaction("all_reaction"));
 
 		self::registerActionForMethod('POST', ActionPost::getInstance());
 		ActionPost::getInstance()->addRequest(new RequestAddUser("add_user"));
