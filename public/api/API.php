@@ -34,6 +34,7 @@ require_once "request/get/user_per_event.php";
 require_once "request/get/display_top_three_article.php";
 require_once "request/get/all_occurrence.php";
 require_once "request/get/get_product.php";
+require_once "request/get/id_stock.php";
 
 require_once "request/post/add_campus.php";
 require_once "request/post/add_event.php";
