@@ -121,6 +121,7 @@ class API
 		ActionGet::getInstance()->addRequest(new RequestTopThreeArticle("top_three_article"));
 		ActionGet::getInstance()->addRequest(new RequestAllOccurrence("all_occurrence"));
 		ActionGet::getInstance()->addRequest(new RequestGetProduct("get_product"));
+		ActionGet::getInstance()->addRequest(new RequestIdStock("id_stock"));
 
 		self::registerActionForMethod('POST', ActionPost::getInstance());
 		ActionPost::getInstance()->addRequest(new RequestAddUser("add_user"));
