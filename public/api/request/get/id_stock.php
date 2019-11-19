@@ -6,7 +6,7 @@
         public function execute($params,$input) {
             try {
                 $requete = pdoprintf(singleton::getInstance(), "CALL select_id_stock(%i, %i)",
-                    $input['id_product'], $input['id_size']);
+                    $params['p1'], $input['p2']);
                 $requete->execute();
                 $result = $requete->fetchAll();
 
